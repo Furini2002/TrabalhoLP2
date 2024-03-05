@@ -18,7 +18,7 @@ public abstract class ConexaoDB {
     
     private static String mysqlSenha = "";
     private static String mysqlUsuario = "root";
-    private static String mysqlDatabase = "vendas";
+    private static String mysqlDatabase = "dbvendas";
     
     private static Connection mysqlConnection = null;
     

@@ -5,21 +5,24 @@
 package projetovendas.view;
 
 import projetovendas.controller.EnderecoController;
+import projetovendas.controller.EstadoController;
+import projetovendas.model.Estado;
 
 /**
  *
  * @author aluno
  */
-public class TelaEndereco extends javax.swing.JFrame {
+public class TelaEstado extends javax.swing.JFrame {
     
-    EnderecoController enderecoController;
+    EstadoController estadoController;
 
     /**
      * Creates new form TelaEndereco
      */
-    public TelaEndereco() {
+    public TelaEstado() {
         initComponents();
-        enderecoController = new EnderecoController();
+        this.setTitle("Tela de cadastro de estado");
+        estadoController = new EstadoController();
     }
 
     /**
@@ -35,12 +38,10 @@ public class TelaEndereco extends javax.swing.JFrame {
         jBCancelar = new javax.swing.JButton();
         jBExcluir = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jTLogradouro = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jCCidade = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jTbairro = new javax.swing.JTextField();
+        jTFNome_estado = new javax.swing.JTextField();
+        jTFSigla_estado = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -67,73 +68,67 @@ public class TelaEndereco extends javax.swing.JFrame {
 
         jButton4.setText("Alterar");
 
-        jLabel1.setText("Logradouro");
+        jLabel2.setText("Sigla");
 
-        jTLogradouro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTLogradouroActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("Cidade");
-
-        jCCidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel3.setText("Bairro");
+        jLabel3.setText("Nome");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jTLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jTFSigla_estado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jTFNome_estado, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
                         .addComponent(jBCadastrar)
                         .addGap(18, 18, 18)
                         .addComponent(jBCancelar)
                         .addGap(18, 18, 18)
                         .addComponent(jBExcluir)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jTbairro, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jCCidade, javax.swing.GroupLayout.Alignment.LEADING, 0, 273, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jButton4)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTbairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTFSigla_estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTFNome_estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBCadastrar)
                     .addComponent(jBCancelar)
                     .addComponent(jBExcluir)
                     .addComponent(jButton4))
-                .addGap(20, 20, 20))
+                .addGap(22, 22, 22))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
-      
+        estadoController.setEstado(new Estado());
+        estadoController.getEstado().setSigla_estado(jTFSigla_estado.getText());
+        estadoController.getEstado().setNome_estado(jTFNome_estado.getText());
+        estadoController.cadastrar();
+        System.out.println("o estado eh"+estadoController.getEstado());
+        limpar();
+        
 
     }//GEN-LAST:event_jBCadastrarActionPerformed
 
@@ -145,10 +140,11 @@ public class TelaEndereco extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jBExcluirActionPerformed
 
-    private void jTLogradouroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTLogradouroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTLogradouroActionPerformed
-
+    private void limpar(){
+        jTFNome_estado.setText("");
+        jTFSigla_estado.setText("");
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -166,20 +162,21 @@ public class TelaEndereco extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaEndereco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEstado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaEndereco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEstado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaEndereco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEstado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaEndereco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEstado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaEndereco().setVisible(true);
+                new TelaEstado().setVisible(true);
             }
         });
     }
@@ -189,11 +186,9 @@ public class TelaEndereco extends javax.swing.JFrame {
     private javax.swing.JButton jBCancelar;
     private javax.swing.JButton jBExcluir;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jCCidade;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTLogradouro;
-    private javax.swing.JTextField jTbairro;
+    private javax.swing.JTextField jTFNome_estado;
+    private javax.swing.JTextField jTFSigla_estado;
     // End of variables declaration//GEN-END:variables
 }

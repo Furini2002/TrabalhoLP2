@@ -42,7 +42,7 @@ public class Cidade implements IOperacao {
 
     @Override
     public void cadastrar() {
-         String insert  = "insert into cidade(nome_cidade, codigo_ibge) "
+         String insert  = "insert into cidade(nome, cod_ibge) "
                 + "values('"+getNome()+"',"+getCodibge()+")";
          mysqStatement = ConexaoDB.getStatement();
          
