@@ -4,6 +4,7 @@
  */
 package projetovendas.controller;
 
+import java.util.List;
 import projetovendas.interfaces.IOperacao;
 import projetovendas.model.Estado;
 
@@ -41,6 +42,10 @@ public class EstadoController implements IOperacao{
 
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+    
+    public List<Estado> getListaEstado(){
+        return estado.getEstados();
     }
     
     

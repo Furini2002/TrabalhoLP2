@@ -36,6 +36,7 @@ public class TelaResumo extends javax.swing.JFrame {
         jBExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Home");
 
         jBCadastrar.setText("Cadastro de cidade");
         jBCadastrar.addActionListener(new java.awt.event.ActionListener() {

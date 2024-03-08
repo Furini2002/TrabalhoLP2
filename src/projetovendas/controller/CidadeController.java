@@ -4,6 +4,7 @@
  */
 package projetovendas.controller;
 
+import java.util.List;
 import projetovendas.interfaces.IOperacao;
 import projetovendas.model.Cidade;
 
@@ -42,6 +43,11 @@ public class CidadeController implements IOperacao{
 
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
+    }
+    
+    public List<Cidade> getCidades(){
+        return cidade.getCidades();
+        
     }
     
     
