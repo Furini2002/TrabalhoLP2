@@ -50,7 +50,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCCidade1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCEstado" min="-2" pref="81" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -75,7 +75,7 @@
                   <Group type="102" attributes="0">
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jCCidade1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCEstado" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -160,12 +160,16 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTbairro">
     </Component>
-    <Component class="javax.swing.JComboBox" name="jCCidade1">
+    <Component class="javax.swing.JComboBox" name="jCEstado">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCEstadoItemStateChanged"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCEstadoActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>

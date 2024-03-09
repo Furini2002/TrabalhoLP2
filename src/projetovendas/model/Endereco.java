@@ -58,6 +58,14 @@ public class Endereco implements IOperacao{
         this.logradouro = logradouro;
     }
 
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
     public Cidade getCidade() {
         return cidade;
     }

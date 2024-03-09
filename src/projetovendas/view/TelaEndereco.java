@@ -8,7 +8,9 @@ import java.awt.event.ItemEvent;
 import java.util.ArrayList;
 import java.util.List;
 import projetovendas.controller.EnderecoController;
+import projetovendas.controller.EstadoController;
 import projetovendas.model.Cidade;
+import projetovendas.model.Estado;
 
 /**
  *
@@ -18,6 +20,7 @@ public class TelaEndereco extends javax.swing.JFrame {
     
     EnderecoController enderecoController;
     List<Cidade> cidades = new ArrayList();
+    List<Estado> estados = new ArrayList();
 
     /**
      * Creates new form TelaEndereco
@@ -26,6 +29,15 @@ public class TelaEndereco extends javax.swing.JFrame {
         initComponents();
         enderecoController = new EnderecoController();
         montacombo();
+        montacomboEst();
+    }
+    
+    private void montacomboEst(){
+        estados = enderecoController.getListaEstado();
+        
+        for (Estado est : estados){
+            jCEstado.addItem(est.getSigla_estado());
+        }
     }
     
     private void montacombo(){
@@ -55,7 +67,7 @@ public class TelaEndereco extends javax.swing.JFrame {
         jCCidade = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jTbairro = new javax.swing.JTextField();
-        jCCidade1 = new javax.swing.JComboBox<>();
+        jCEstado = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -107,6 +119,17 @@ public class TelaEndereco extends javax.swing.JFrame {
 
         jLabel3.setText("Bairro");
 
+        jCEstado.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCEstadoItemStateChanged(evt);
+            }
+        });
+        jCEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCEstadoActionPerformed(evt);
+            }
+        });
+
         jLabel4.setText("Estado");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -136,7 +159,7 @@ public class TelaEndereco extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(jCCidade1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jCEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -155,7 +178,7 @@ public class TelaEndereco extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCCidade1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jCEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -202,6 +225,20 @@ public class TelaEndereco extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jCCidadeItemStateChanged
 
+    private void jCEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCEstadoActionPerformed
+        // TODO add your handling code here:        
+    }//GEN-LAST:event_jCEstadoActionPerformed
+
+    private void jCEstadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCEstadoItemStateChanged
+        // TODO add your handling code here:
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            System.out.println(estados.get(jCEstado.getSelectedIndex()));
+            Estado estadoModel = estados.get(jCEstado.getSelectedIndex());
+            enderecoController.setEstado(estadoModel);
+    }                                        
+
+    }//GEN-LAST:event_jCEstadoItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -243,7 +280,7 @@ public class TelaEndereco extends javax.swing.JFrame {
     private javax.swing.JButton jBExcluir;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jCCidade;
-    private javax.swing.JComboBox<String> jCCidade1;
+    private javax.swing.JComboBox<String> jCEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
