@@ -10,6 +10,7 @@ import java.util.List;
 import projetovendas.controller.EnderecoController;
 import projetovendas.controller.EstadoController;
 import projetovendas.model.Cidade;
+import projetovendas.model.Endereco;
 import projetovendas.model.Estado;
 
 /**
@@ -119,6 +120,12 @@ public class TelaEndereco extends javax.swing.JFrame {
 
         jLabel3.setText("Bairro");
 
+        jTbairro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTbairroActionPerformed(evt);
+            }
+        });
+
         jCEstado.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jCEstadoItemStateChanged(evt);
@@ -196,7 +203,17 @@ public class TelaEndereco extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadastrarActionPerformed
-      
+        enderecoController.setEndereco(new Endereco());
+        enderecoController.getEndereco().setBairro(jTbairro.getText());
+        enderecoController.getEndereco().setLogradouro(jTLogradouro.getText());
+        enderecoController.getEndereco().setCidade(cidades.get(jCCidade.getSelectedIndex()));
+        enderecoController.getEndereco().setEstado(estados.get(jCEstado.getSelectedIndex()));
+        enderecoController.cadastrar();
+        System.out.println("a cidade eh"+ enderecoController.getCidade());
+        limpar();
+        System.out.println("a cidade eh"+ enderecoController.getCidade());
+        exlcuir();
+        
 
     }//GEN-LAST:event_jBCadastrarActionPerformed
 
@@ -239,6 +256,20 @@ public class TelaEndereco extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jCEstadoItemStateChanged
 
+    private void jTbairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTbairroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTbairroActionPerformed
+
+     private void limpar(){
+       jTLogradouro.setText("");
+       jTbairro.setText(""); 
+    }
+    
+    private void exlcuir(){
+    enderecoController.excluir();
+       System.out.println("a cidade eh"+ enderecoController.getCidade());
+    }
+    
     /**
      * @param args the command line arguments
      */

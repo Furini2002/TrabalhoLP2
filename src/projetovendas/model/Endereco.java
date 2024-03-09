@@ -25,7 +25,7 @@ public class Endereco implements IOperacao{
 
     @Override
     public void cadastrar() {
-        String sql = "insert into endereco(logradouro, bairro, id_cidade)"
+        String sql = "insert into endereco(logradouro, bairro, id_cidade, id_estado)"
                 + "values ('"+logradouro+"','"+bairro+"',"+cidade.getIdcidade()+","+estado.getIdEstado()+")";
         mysqStatement = ConexaoDB.getStatement();
         try {
