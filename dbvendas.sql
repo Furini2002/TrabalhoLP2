@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05/03/2024 às 02:38
+-- Tempo de geração: 11/03/2024 às 02:39
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -40,7 +40,8 @@ CREATE TABLE `cidade` (
 --
 
 INSERT INTO `cidade` (`id_cidade`, `nome`, `cod_ibge`) VALUES
-(1, 'umu', 123);
+(1, 'Umuarama', 123),
+(2, 'Cianorte', 852);
 
 -- --------------------------------------------------------
 
@@ -52,8 +53,16 @@ CREATE TABLE `endereco` (
   `id_endereco` int(11) NOT NULL,
   `logradouro` varchar(100) NOT NULL,
   `bairro` varchar(100) NOT NULL,
-  `id_cidade` int(11) NOT NULL
+  `id_cidade` int(11) NOT NULL,
+  `id_estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `endereco`
+--
+
+INSERT INTO `endereco` (`id_endereco`, `logradouro`, `bairro`, `id_cidade`, `id_estado`) VALUES
+(1, 'Rua Brigadeiro', 'centro', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -72,7 +81,9 @@ CREATE TABLE `estado` (
 --
 
 INSERT INTO `estado` (`id_estado`, `sigla_estado`, `nome_estado`) VALUES
-(1, 'pp', 'plk');
+(1, 'SP', 'São Paulo'),
+(2, 'PR', 'Paraná'),
+(3, 'SC', 'Santa Catarina');
 
 --
 -- Índices para tabelas despejadas
@@ -105,19 +116,19 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT de tabela `cidade`
 --
 ALTER TABLE `cidade`
-  MODIFY `id_cidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_cidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `endereco`
 --
 ALTER TABLE `endereco`
-  MODIFY `id_endereco` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_endereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `estado`
 --
 ALTER TABLE `estado`
-  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restrições para tabelas despejadas
